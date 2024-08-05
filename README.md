@@ -35,3 +35,13 @@ Decode:  base64.net --decode [file 1] ... [file n]
          type [file] | base64.net --decode [file 1] ... [file n]
          decode stdin, then each files, then concat in output
 ```
+
+Easy test, input, encodes, then decodes, produces original input:
+```
+echo "mary had little lamb" | base64.net.exe | base64.net.exe --decode
+```
+Produces
+```
+"mary had little lamb"
+```
+
