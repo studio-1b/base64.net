@@ -12,6 +12,10 @@ Then Find SDK compiler.  Visual studio 2010's is
 ```
 C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\devenv.com" /build Debug base64.net.sln
 ```
+The SDK's is at
+```
+C:\Windows\Microsoft.NET\Framework\v3.5\MSBuild.exe base64.net.sln
+```
 And compile
 
 ## How to run
