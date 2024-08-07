@@ -41,7 +41,9 @@ namespace base64.net
                 return 1;
             }
             if (args.Contains("--decode"))
+            using (Stream outputStream = Console.OpenStandardOutput())
             { // begin of encode
+                var outpos = 0;
                 if(IS_INPUT_REDIR)
                     using (Stream inputStream = Console.OpenStandardInput())
                     {
@@ -52,7 +54,9 @@ namespace base64.net
                             try
                             {
                                 var decoded = Convert.FromBase64String(txt);
-                                Console.WriteLine(Encoding.ASCII.GetString(decoded));
+                                //Console.WriteLine(Encoding.ASCII.GetString(decoded));
+                                outputStream.Write(decoded, outpos, decoded.Length);
+                                outpos += decoded.Length;
                             }
                             catch
                             {
@@ -69,7 +73,9 @@ namespace base64.net
                             try
                             {
                                 var decoded = Convert.FromBase64String(data);
-                                Console.WriteLine(Encoding.ASCII.GetString(decoded));
+                                //Console.WriteLine(Encoding.ASCII.GetString(decoded));
+                                outputStream.Write(decoded, outpos, decoded.Length);
+                                outpos += decoded.Length;
                             }
                             catch
                             {
@@ -79,6 +85,7 @@ namespace base64.net
                         else
                             Console.Error.WriteLine("cannot find, skipping " + filename);
                 }
+                outputStream.Flush();
                 return 0;
             } // end of decode
             else
