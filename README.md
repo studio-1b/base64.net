@@ -49,3 +49,20 @@ Produces
 "mary had little lamb"
 ```
 
+
+
+## This functionality is built into Powershell (free in windows)
+
+This utility, is just for people who don't want to use Powershell, but want base64.
+
+See blog below:
+https://pavolkutaj.medium.com/how-to-encode-a-file-contents-into-base64-with-powershell-983d76a093cf
+
+You can enter this directly in Powershell and get the Base64 encoding of any string:
+```
+[System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("ssdfkf"))
+```
+Result base 64 encoding for "ssdfkf" is:
+<pre>
+c3NkZmtm
+</pre>
